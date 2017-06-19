@@ -1,0 +1,36 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="cssfile.css">
+<title>afspraken maken</title>
+</head>
+<body>
+    <h1>Beheerder</h1>
+	<h2>Client verwijderen</h2>
+
+
+<form id="delete">
+		<input type="text" placeholder="id" id="gebruikerid" name="id" /> </br> <input
+			class="button" type="button" onclick="deleteGebruiker()" id="delete"
+			value="client verwijderen" /><INPUT
+			class="button" TYPE="button" onClick="history.go(0)" VALUE="Refresh"><INPUT
+			class="button" TYPE="button" onClick="location.href='startscherms.html'" VALUE="terug">
+	
+	<div class="center">
+		<table id="allesgb" >
+			<tr>
+				<th>voornaam</th>
+				<th>achternaam</th>
+				<th id="idhide">id</th>
+				
+			</tr>
+		</table>
+	</div>
+	</form>
+	
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="javascript.js"></script>
+
+</body>
+</html>

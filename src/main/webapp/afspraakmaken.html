@@ -1,0 +1,39 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="cssfile.css">
+<title>afspraken maken</title>
+</head>
+<body>
+	<h1>Afspraak maken</h1>
+
+
+	<form id="newAfspraak">
+		
+			
+<select id="soort">
+  <option id="soort" value="voetreflex 30 min">voetreflex 30 min</option>
+  <option id="soort" value="voetreflex 60 min">voetreflex 60 min</option>
+  <option id="soort" value="aromatherapie 30 min">aromatherapie 30 min</option>
+  <option id="soort" value="aromatherapie 60 min">aromatherapie 60 min</option>
+</select>
+    </br>
+ <select id="tijd">
+  <option id="tijd" value="12:00">12:00</option>
+  <option id="tijd" value="14:00">14:00</option>
+  <option id="tijd" value="16:00">16:00</option>
+</select>
+
+ </br>  <input type="date" placeholder="datum"
+			id="datum" name="datum" /> </br> <input class="button" type="button" onclick= "newAfspraak()"  id="post"
+			value="afspraak maken" /><INPUT
+			class="button" TYPE="button" onClick="location.href='starscherm.html'" VALUE="terug">
+	
+	</form>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="javascript.js"></script>
+
+</body>
+</html>
+

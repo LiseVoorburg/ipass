@@ -1,0 +1,37 @@
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="cssfile.css">
+<title>afspraak verwijderen</title>
+</head>
+<body>
+	<h1>Afspraak verwijderen</h1>
+
+
+
+	<form id="deleteafspraak">
+<p> geef hier het id op van de afspraak die u wilt verwijderen </p>
+		<input type="text" placeholder="id" id="afspraakid" name="id" /> </br> <input
+			class="button" type="button" onclick="deleteAfspraak()" id="post"
+			value="afspraak verwijderen" />
+			 <INPUT
+			class="button" TYPE="button" onClick="location.href='startscherms.html'" VALUE="terug">
+	
+	</form>
+	<div class="center">
+		<table id="echtalles">
+			<tr>
+				<th>datum</th>
+				<th>tijd</th>
+				<th>gebruikersid</th>
+				<th>id</th>
+				<th>soort</th>
+			</tr>
+		</table>
+	</div>
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="javascript.js"></script>
+
+</body>
+</html>
