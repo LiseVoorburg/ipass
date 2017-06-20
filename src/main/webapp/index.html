@@ -1,44 +1,25 @@
 <!DOCTYPE html>
 <html>
-<title>Dynamic Example</title>
+<head>
+<meta charset="ISO-8859-1">
+<link rel="stylesheet" type="text/css" href="cssfile.css">
+<title>inloggen</title>
+</head>
 <body>
-	<form id="deleteCustomerForm">
-		<input type="text" placeholder="afspraakid" id="afspraakid"
-			name="afspraakid" /> <input onclick="leukenaam()" type="button"
-			id="delete" value="Delete!" />
-		<div id="response"></div>
-	</form>
-	<form id="deletegebruiker">
-		<input type="text" placeholder="gebruikerid" id="gebruikerid"
-			name="afspraakid" /> <input onclick="deleteGebruiker()"
-			type="button" id="delete2" value="Delete!" />
-		<div id="response"></div>
-	</form>
-	<form id="updateAfspraak">
-		<input type="text" placeholder="id" id="id" name="id" /> <input
-			type="text" placeholder="soort" id="soort" name="soort" /> <input
-			type="text" placeholder="tijd" id="tijd" name="tijd" /> <input
-			type="text" placeholder="datum" id="datum" name="datum" /> <input
-			type="button" onclick="updateAfspraak()" id="put" value="Put!" />
-
-
-
-	</form>
-	<form id="newAfspraak">
-		<input type="text" placeholder="gebruikersid" id="gebruikersid"
-			name="gebruikersid" /> <input type="text" placeholder="soort"
-			id="soort" name="soort" /> <input type="text" placeholder="tijd"
-			id="tijd" name="tijd" /> <input type="text" placeholder="datum"
-			id="datum" name="datum" /> <input type="button" onclick= "newAfspraak()"  id="post"
-			value="Post!" />
+	<h1>inloggen</h1>
+	<form id="inlog">
+		<input type="text" placeholder="gebruikers id" id="inid" name="id" /></br>
+		<input type="password" placeholder="wachtwoord" id="wachtwoord" name="wachtwoord" />
+		</br> <input class="button"  onclick= "inlog()" type="button"
+			id="inloggen" value="inloggen" /> 
 	</form>
 
 
 
 
-	<script src="javascript.js"></script>
-	<script src="cssfile.css"></script>
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="javascript.js"></script>
+
 </body>
 </html>

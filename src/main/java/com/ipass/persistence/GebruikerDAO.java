@@ -79,26 +79,26 @@ public class GebruikerDAO extends BaseDAO {
 		
 		return result;
 	}
-	 public String findRoleForIDAndPassword (String username, String wachtwoord) {
-	 String role = null;
-	 int id = Integer.parseInt(username);
-	 String query = "SELECT role FROM gebruiker WHERE id="+id+" AND wachtwoord='"+wachtwoord+"'";
-
-	 try (Connection con = super.getConnection()) {
-
-	 PreparedStatement pstmt = con.prepareStatement(query);
-	 pstmt.setInt (1, id);
-	 pstmt.setString(2, wachtwoord);
-
-	 ResultSet rs = pstmt.executeQuery();
-	 if (rs.next())
-	 role = rs.getString("rol");
-
-	 } catch (SQLException sqle) {
-	 sqle.printStackTrace();
-	 }
-
-	 return role;
-	 }
-	
+//	 public String findRoleForIDAndPassword (String username, String wachtwoord) {
+//	 String role = null;
+//	 int id = Integer.parseInt(username);
+//	 String query = "SELECT role FROM gebruiker WHERE id="+id+" AND wachtwoord='"+wachtwoord+"'";
+//
+//	 try (Connection con = super.getConnection()) {
+//
+//	 PreparedStatement pstmt = con.prepareStatement(query);
+//	 pstmt.setInt (1, id);
+//	 pstmt.setString(2, wachtwoord);
+//
+//	 ResultSet rs = pstmt.executeQuery();
+//	 if (rs.next())
+//	 role = rs.getString("rol");
+//
+//	 } catch (SQLException sqle) {
+//	 sqle.printStackTrace();
+//	 }
+//
+//	 return role;
+//	 }
+//	
 }

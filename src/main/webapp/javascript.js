@@ -105,9 +105,9 @@ function newAfspraakSan() {
 };
 function showall() {
 
-	id = sessionStorage.getItem("id");
-
-	$.getJSON("/notafirstapp/restservices/gebruikers/" + id, function(data) {
+	ids = sessionStorage.getItem("id");
+    
+	$.getJSON("/notafirstapp/restservices/gebruikers/" + ids, function(data) {
 
 		$.each(data, function(i, afspraak) {
 
@@ -163,8 +163,6 @@ function showallgb() {
 showallgb();
 
 function inlog() {
-	var formsir = $("#inlog").serialize();
-
 	id = $("#inid").val();
 	ww= $("#wachtwoord").val();
 	

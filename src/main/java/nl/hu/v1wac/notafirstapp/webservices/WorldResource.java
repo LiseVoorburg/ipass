@@ -1,55 +1,33 @@
 package nl.hu.v1wac.notafirstapp.webservices;
 
+import java.sql.SQLException;
+import java.util.List;
+
 import javax.json.Json;
-import javax.json.*;
+import javax.json.JsonArray;
+import javax.json.JsonArrayBuilder;
+import javax.json.JsonObjectBuilder;
 import javax.ws.rs.DELETE;
-import javax.ws.rs.*;
+import javax.ws.rs.FormParam;
 import javax.ws.rs.GET;
+import javax.ws.rs.POST;
 import javax.ws.rs.PUT;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
-import javax.ws.rs.QueryParam;
-import javax.ws.rs.WebApplicationException;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-import java.security.Key;
-import java.util.Calendar;
-
-import javax.ws.rs.Consumes;
-import javax.ws.rs.FormParam;
-import javax.ws.rs.POST;
-
-
-import io.jsonwebtoken.JwtException;
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.impl.crypto.MacProvider;
-
-
-import java.io.InputStream;
-
-import java.sql.SQLException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-
-import javax.json.JsonArray;
-import javax.json.JsonArrayBuilder;
-import javax.json.JsonObjectBuilder;
 
 import com.ipass.persistence.AfspraakDAO;
 import com.ipass.persistence.GebruikerDAO;
 import com.tutorial.eclipse.entity.Afspraak;
 import com.tutorial.eclipse.entity.Gebruiker;
 
-
-
 @Path("/gebruikers")
 public class WorldResource {
 
 	@GET
-	@Produces("application/json")
+	@Produces({MediaType.APPLICATION_JSON})
 	public String getGebruikers() {
 		JsonArrayBuilder jab = Json.createArrayBuilder();
 		GebruikerDAO gdao = new GebruikerDAO();
