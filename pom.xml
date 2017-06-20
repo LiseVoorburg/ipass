@@ -46,11 +46,7 @@
 			<artifactId>postgresql</artifactId>
 			<version>9.4.1212</version>
 		</dependency>
-		<dependency>
- <groupId>org.apache.tomcat</groupId>
- <artifactId>tomcat-dbcp</artifactId>
- <version>8.0.33</version>
-</dependency>
+	
 		<dependency>
 			<groupId>org.apache.tomcat</groupId>
 			<artifactId>tomcat-dbcp</artifactId>
@@ -92,9 +88,9 @@
 					</execution>
 				</executions>
 			</plugin>
-	
-	
-		
+
+
+
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-dependency-plugin</artifactId>

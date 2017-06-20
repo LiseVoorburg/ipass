@@ -3,19 +3,9 @@ package com.tutorial.eclipse.entity;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.NamedQuery;
-import javax.persistence.Table;
 
-@Entity
-@Table
-@NamedQuery(name="Gebruiker.class", query="SELECT e.rol FROM Gebruiker e where e.ID=5")
 public class Gebruiker{
-	@Id
-	   @GeneratedValue(strategy = GenerationType.AUTO) 
+	
 	    private int ID;
 		private String voornaam;
 	    private String achternaam;
