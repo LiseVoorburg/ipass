@@ -13,7 +13,7 @@ import org.apache.tomcat.dbcp.dbcp2.BasicDataSource;
 
 public class BaseDAO {
 	private DataSource connectionPool;
-
+//in de basedao wordt de connectie met de database tot stand geroepen
 	public BaseDAO() {
 		try {
 			final String DATABASE_URL_PROP = System.getenv("DATABASE_URL");

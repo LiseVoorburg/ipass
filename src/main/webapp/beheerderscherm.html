@@ -7,17 +7,19 @@
 <body>
     <h1>Beheerder</h1>
 	<h2>Client verwijderen</h2>
-
+<!-- client verwijderen voor de beheerder-->
 
 <form id="delete">
-		<input type="text" placeholder="id" id="gebruikerid" name="id" /> </br> <input
+		<input type="text" placeholder="id" id="gebruikerid" name="id" /> </br> 
+		<!-- button om de functie op te roepen-->
+		<input
 			class="button" type="button" onclick="deleteGebruiker()" id="delete"
 			value="client verwijderen" /><INPUT
 			class="button" TYPE="button" onClick="history.go(0)" VALUE="Refresh"><INPUT
 			class="button" TYPE="button" onClick="location.href='startscherms.html'" VALUE="terug">
 	
 	<div class="center">
-		<table id="allesgb" >
+		<table id="allesgb" ><!-- tabel voor een tabel gebruikers-->
 			<tr>
 				<th>voornaam</th>
 				<th>achternaam</th>
@@ -27,7 +29,11 @@
 		</table>
 	</div>
 	</form>
-	
+	<div class="footer">Deze opdracht is gemaakt in het kader van het IPASS
+    <p class="alignleft">Auteur: Lise Voorburg</p>
+    <p class="alignright">Datum:21-6-2017</p>
+  </div> 
+	<!-- script voor het aanroepen van het javascript en jquery-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="javascript.js"></script>

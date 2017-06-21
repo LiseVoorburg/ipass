@@ -1,4 +1,4 @@
---
+﻿--
 -- PostgreSQL database dump
 --
 
@@ -113,7 +113,7 @@ SELECT pg_catalog.setval('af_id_aq', 28, true);
 --
 
 COPY afspraak (id, datum, gebruikersid, soort, tijd) FROM stdin;
-3	24/06/2017	3	voetreflex 30 min	10:00
+30	24/06/2017	3	voetreflex 30 min	10:00
 6	27/07/2017	3	voetreflex 60 min	11:00
 5	24/06/2017	5	aromatherapie 60 min	14:00
 15	2017-08-18	2	voetreflex 30 min	12:00
@@ -121,7 +121,7 @@ COPY afspraak (id, datum, gebruikersid, soort, tijd) FROM stdin;
 20	2019-06-23	2	voetreflex 30 min	12:00
 21	2018-05-31	4	voetreflex 60 min	14:00
 22	2017-07-04	4	voetreflex 30 min	12:00
-26		2	voetreflex 60 min	14:00
+26	2017-07-04	3       voetreflex 60 min	14:00
 \.
 
 

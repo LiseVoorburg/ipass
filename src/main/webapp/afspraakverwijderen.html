@@ -7,11 +7,13 @@
 <body>
 	<h1>Afspraak verwijderen</h1>
 
-
+<!-- afspraak verwijderen voor eigenaar en gebruiker-->
 
 	<form id="deleteafspraak">
 <p> geef hier het id op van de afspraak die u wilt verwijderen </p>
-		<input type="text" placeholder="id" id="afspraakid" name="id" /> </br> <input
+		<input type="text" placeholder="id" id="afspraakid" name="id" /> </br>
+		<!-- button om de functie op te roepen-->
+		 <input
 			class="button" type="button" onclick="deleteAfspraak()" id="post"
 			value="afspraak verwijderen" />
 			 <INPUT
@@ -19,7 +21,7 @@
 	
 	</form>
 	<div class="center">
-		<table id="echtalles">
+		<table id="echtalles"><!-- tabel voor een tabel afspraken-->
 			<tr>
 				<th>datum</th>
 				<th>tijd</th>
@@ -29,6 +31,11 @@
 			</tr>
 		</table>
 	</div>
+	<div class="footer">Deze opdracht is gemaakt in het kader van het IPASS
+    <p class="alignleft">Auteur: Lise Voorburg</p>
+    <p class="alignright">Datum:21-6-2017</p>
+  </div> 
+	<!-- script voor het aanroepen van het javascript en jquery-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="javascript.js"></script>

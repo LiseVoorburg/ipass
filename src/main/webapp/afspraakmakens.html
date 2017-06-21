@@ -5,46 +5,56 @@
 <title>afspraken maken</title>
 </head>
 <body>
+<!--afspraak maken -->
 	<h1>Afspraak maken</h1>
 
 
 	<form id="newAfspraak">
-		<input type="text" placeholder="gebruikersid" id="gebruikersid"
-			name="gebruikersid" /> </br> 
+	<p> vul hier het klantnummer in: </p>
+		<input type="text" placeholder="klantnummer" id="gebruikersid"
+			name="gebruikersid" /> </br> </br>
 			
-<select id="soort">
+<select id="soort"><!--dropdown menu voor de soort afspraak -->
   <option id="soort" value="voetreflex 30 min">voetreflex 30 min</option>
   <option id="soort" value="voetreflex 60 min">voetreflex 60 min</option>
   <option id="soort" value="aromatherapie 30 min">aromatherapie 30 min</option>
   <option id="soort" value="aromatherapie 60 min">aromatherapie 60 min</option>
 </select>
-    </br>
- <select id="tijd">
+    </br> <label> datum: </label> </br><!--datum veld -->
+    <input type="date" value="2018-01-01"  placeholder="datum"
+			id="datum" name="datum" /> </br>
+			
+ <select id="tijd"><!--dropdown menu voor de tijd van de afspraak -->
   <option id="tijd" value="12:00">12:00</option>
   <option id="tijd" value="14:00">14:00</option>
   <option id="tijd" value="16:00">16:00</option>
 </select>
-
- </br>  <input type="date" placeholder="datum"
-			id="datum" name="datum" /> </br> <input class="button" type="button" onclick= "newAfspraakSan()"  id="post"
+</br><!-- button om de functie op te roepen-->
+	 <input class="button" type="button" onclick= "newAfspraak()"  id="post"
 			value="afspraak maken" /><INPUT
-			class="button" TYPE="button" onClick="history.go(0)" VALUE="Refresh"><INPUT
 			class="button" TYPE="button" onClick="location.href='startscherms.html'" VALUE="terug">
 	
 	<div class="center">
-		<table id="allesgb" >
+		<table id="allesgb" ><!-- tabel voor een tabel gebruikers-->
 			<tr>
 				<th>voornaam</th>
 				<th>achternaam</th>
-				<th>id</th>
+				<th>klantnummer</th>
 				
 			</tr>
 		</table>
 	</div>
 	</form>
+	<div class="footer">Deze opdracht is gemaakt in het kader van het IPASS
+    <p class="alignleft">Auteur: Lise Voorburg</p>
+    <p class="alignright">Datum:21-6-2017</p>
+  </div> 
+	<!-- script voor het aanroepen van het javascript en jquery-->
 	<script
 		src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 	<script src="javascript.js"></script>
 
 </body>
 </html>
+
+

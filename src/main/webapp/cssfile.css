@@ -16,7 +16,9 @@ h1 {
 .dropdown {
     position: relative;
     display: inline-block;
-    
+    font-size: 20px;
+	float: center;
+	margin-right: -470px;
 }
 .button{
 	font-family: Calibri;
@@ -24,7 +26,19 @@ h1 {
 	border-color:#3ff1b7;
 }
 .dropdown span {
-	padding: 10px;
+	
+	text-align: center;
+	
+}
+#foto1{
+	display: block;
+	float: right;
+	margin-right: 150px;
+}
+#foto2{
+	display: block;
+	float: right;
+	margin-top: -150px;
 }
 
 .dropdown-content {
@@ -35,7 +49,13 @@ h1 {
     margin-left: -65px;
     padding: 12px 16px;
     z-index: 1;
+    
 }
+#rechts { 
+	text-align: left;
+	position: block;
+	width: 600px;
+	 }
 section{
 	display: block;
 	text-align: center;
@@ -63,7 +83,25 @@ section{
     
     }
 
+
 .dropdown:hover .dropdown-content {
     display: block;
     max-width: 300px;
 }
+.footer {
+	
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 0.5rem;
+  border-top:3px solid #1c5f52;
+  background-color: #3ff1b7;
+  text-align: center;
+  
+}
+.alignleft {
+  float: left;
+}
+.alignright {
+  float: right;

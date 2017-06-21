@@ -14,41 +14,46 @@ public class AfspraakDAO extends BaseDAO{
 	
 	
 	private List<Afspraak> selectAfspraak(String query) {
+		//maakt een lijst met strings aan de hand van de query die wordt toegevoeg door een andere funcite
 		List<Afspraak> results = new ArrayList<Afspraak>();
-	
-		try (Connection con = super.getConnection()) {
-			Statement stmt = con.createStatement();
-			ResultSet dbResultSet = stmt.executeQuery(query);
+	//maakt een nieuwe list aan voor een afspraak
+		try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
+			Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
+			ResultSet dbResultSet = stmt.executeQuery(query);//het halen van de string uit de database
 			
-			while (dbResultSet.next()) {
-				int ID = dbResultSet.getInt("id");
+			while (dbResultSet.next()) {//voor iedere uitkomst van de database op de query
+				int ID = dbResultSet.getInt("id");//het halen van de objecten uit de string
 				String soort = dbResultSet.getString("soort");
 				String tijd = dbResultSet.getString("tijd");
 				String datum = dbResultSet.getString("datum");
 				int gebruikersID = dbResultSet.getInt("gebruikersId");
 				
-				results.add(new Afspraak(ID, soort, tijd, datum, gebruikersID));
+				results.add(new Afspraak(ID, soort, tijd, datum, gebruikersID));//voegt alles toe aan de afspraak
 			}
-		} catch (SQLException sqle) {
+		} catch (SQLException sqle) {//het vangen van de sqleception
 			sqle.printStackTrace();
 		}
 		
 		return results;
 	}
+	public List<Afspraak> findAllAfspraak() {//haalt alle afspraken op uit de database
+		return selectAfspraak("SELECT ID, soort, tijd, datum, gebruikersID FROM Afspraak");//geeft de query naar selectafspraak
+	}
 	public boolean delete(Afspraak afspraak) {
+		//verwijderd een afspraak door middel van het id van de afspraak
 		boolean result = false;
-		boolean addressExists = findById(afspraak.getID()) != null;
+		boolean afspraakExists = findById(afspraak.getID()) != null;//kijkt of de afspraak bestaat
 		
-		if (addressExists) {
-			String query = "DELETE FROM Afspraak WHERE id = '" +afspraak.getID() + "'"; 
+		if (afspraakExists) {
+			String query = "DELETE FROM Afspraak WHERE id = '" +afspraak.getID() + "'"; //de query voor de database
 					
-			try (Connection con = super.getConnection()) {
+			try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
 				
-				Statement stmt = con.createStatement();
-				if (stmt.executeUpdate(query) == 1) { // 1 row updated!
+				Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
+				if (stmt.executeUpdate(query) == 1) { // 1 row updated! extra check zodat er echt maar 1 rij wordt verwijderd
 					result = true;
 				}
-			} catch (SQLException sqle) {
+			} catch (SQLException sqle) {//het vangen van de sqleception
 				sqle.printStackTrace();
 			}
 		}
@@ -57,67 +62,70 @@ public class AfspraakDAO extends BaseDAO{
 	}
 	
 	public boolean deleteByGebruiker(int id) {
+		//het verwijderen van alle afspraken van een begruiker
+		// is een gevolg vanuit de gebruikerdao, fuctie: deletegebruier()
 		boolean result = false;
-		boolean addressExists = findById(id) != null;
+		boolean afExists = findById(id) != null;//de afspraak mag niet null zijn(moet dus bestaan)
 		
-		if (addressExists) {
-			String query = "DELETE FROM Afspraak WHERE gebruikersid = " +id; 
+		if (afExists) {
+			String query = "DELETE FROM Afspraak WHERE gebruikersid = " +id; //de query voor de database
 					
-			try (Connection con = super.getConnection()) {
+			try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
 				
-				Statement stmt = con.createStatement();
+				Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
 				if (stmt.executeUpdate(query) == 1) { // 1 row updated!
 					result = true;
 				}
-			} catch (SQLException sqle) {
+			} catch (SQLException sqle) {//het vangen van de sqleception
 				sqle.printStackTrace();		
 							}	
 						}
 		return result;}
 
 	public Afspraak findById(int ID) {
-		
+		// een afspraak vinden op id van de afspraak zelf
 			  String query = "SELECT ID, soort, tijd, datum, gebruikersID FROM Afspraak WHERE id='"+ID+"'";
+			  //de query voor de database
 			  Afspraak afspraak = new Afspraak();
-			  try (Connection con = super.getConnection()) {
-			    Statement stmt = con.createStatement();
+			  try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
+			    Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
 			    ResultSet dbResultSet = stmt.executeQuery(query);
 			    
-			    while (dbResultSet.next()) {
-			     String datum = dbResultSet.getString("datum ");
+			    while (dbResultSet.next()) {//voor iedere uitkomst van de database op de query
+			     String datum = dbResultSet.getString("datum");//het halen van de objecten uit de string
 			     String soort = dbResultSet.getString("soort");
 			     String tijd = dbResultSet.getString("tijd");
 			     int gebruikersID = dbResultSet.getInt("gebruikersID");
-			     afspraak.setDatum(datum );
+			     afspraak.setDatum(datum );//het setten van de objecten
 			     afspraak.setID(ID);
 			     afspraak.setTijd(tijd);
 			     afspraak.setSoort(soort);
 			     afspraak.setGebruikersID(gebruikersID);
 			    }
-			    } catch (SQLException sqle) {
+			    } catch (SQLException sqle) {//het vangen van de sqleception
 			     sqle.printStackTrace();
 			    }
 			   return afspraak;
 			 }
 	
 	
-	public List<Afspraak> findAllAfspraak() {
-		return selectAfspraak("SELECT ID, soort, tijd, datum, gebruikersID FROM Afspraak");
-	}
+	
 	 
-	public Afspraak updateAfspraak(Afspraak afspraak) throws SQLException {
-				boolean afspraakExists = findById(afspraak.getID()) != null;
+	public Afspraak updateAfspraak(Afspraak afspraak) {
+			//	het aanpassen van een afspraak via het id
+		boolean afspraakExists = findById(afspraak.getID()) != null;
 				
 				if (afspraakExists) {
 					String query = "Update Afspraak SET soort= '" + afspraak.getSoort() + "', tijd= '" + afspraak.getTijd() + "' , datum= '" +afspraak.getDatum() + "' WHERE id = " + afspraak.getID() ; 
+					//de query voor de database
 					System.out.println(query);
-					try (Connection con = super.getConnection()) {
+					try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
 						
-						Statement stmt = con.createStatement();
+						Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
 						if (stmt.executeUpdate(query) == 1) { // 1 row updated!
 							
 						}
-					} catch (SQLException sqle) {
+					} catch (SQLException sqle) {//het vangen van de sqleception
 						sqle.printStackTrace();		
 									}	
 								}
@@ -126,18 +134,20 @@ public class AfspraakDAO extends BaseDAO{
 	
 	 
 	 
-	 public Afspraak createAfspraak(Afspraak afspraak) throws SQLException {
+	 public Afspraak createAfspraak(Afspraak afspraak) throws SQLException {//het vangen van de sqleception
+		 //het maken van een afspraak via het id
 		 System.out.println("doe het plzz");	
 		    boolean result = false;
 			
 			
 			
-				String query = "INSERT INTO Afspraak( ID, soort, tijd, datum, gebruikersID) VALUES(nextval('af_id_aq')"+ ",'" + afspraak.getSoort() + "','" + afspraak.getTijd() + "','" + afspraak.getDatum() + "'," + afspraak.getGebruikersID() + ")"; 
+				String query = "INSERT INTO Afspraak( ID, soort, tijd, datum, gebruikersID) VALUES(nextval('af_id_aq')"+ ",'" + afspraak.getSoort() + "','" + afspraak.getTijd() + "','" + afspraak.getDatum() + "'," + afspraak.getGebruikersID() + ")";
+				//de query voor de database 
 					System.out.println(query);	
-						try (Connection con = super.getConnection()) {
+						try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
 						
-						Statement stmt = con.createStatement();
-						 stmt.executeUpdate(query);
+						Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
+						 stmt.executeUpdate(query);//het uitvoer van de update in de database
 						}
 								
 				return afspraak;
@@ -145,23 +155,24 @@ public class AfspraakDAO extends BaseDAO{
 	
 	 
 	public List<Afspraak> getByGebruiker(Gebruiker gebruiker) {
+		//het ophalen van alle afspraken van 1 gebruiker door middel van het gebruikersid
 		List<Afspraak> results = new ArrayList<Afspraak>();
 		
-		try (Connection con = super.getConnection()) {
-			Statement stmt = con.createStatement();
-			String query = "SELECT * FROM afspraak WHERE gebruikersid = " +gebruiker.getID();
+		try (Connection con = super.getConnection()) {//de connectie vanuit de basedao
+			Statement stmt = con.createStatement();//statment aanmaken om de query naar de database te sturen
+			String query = "SELECT * FROM afspraak WHERE gebruikersid = " +gebruiker.getID();//de query voor de database 
 			ResultSet dbResultSet = stmt.executeQuery(query);
 			
-			while (dbResultSet.next()) {
-				int ID = dbResultSet.getInt("id");
+			while (dbResultSet.next()) {//voor iedere uitkomst van de database op de query
+				int ID = dbResultSet.getInt("id");//het halen van de objecten uit de string
 				String soort = dbResultSet.getString("soort");
 				String tijd = dbResultSet.getString("tijd");
 				String datum = dbResultSet.getString("datum");
 				int gebruikersID = dbResultSet.getInt("gebruikersid");
 				
-				results.add(new Afspraak(ID, soort, tijd, datum, gebruikersID));
+				results.add(new Afspraak(ID, soort, tijd, datum, gebruikersID));//voegt alles toe aan de afspraak
 			}
-		} catch (SQLException sqle) {
+		} catch (SQLException sqle) {//het vangen van de sqleception
 			sqle.printStackTrace();
 		}
 		
