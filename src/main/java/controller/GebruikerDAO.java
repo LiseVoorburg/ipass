@@ -1,10 +1,10 @@
-package com.ipass.persistence;
+package controller;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tutorial.eclipse.entity.Gebruiker;
+import model.Gebruiker;
 
 public class GebruikerDAO extends BaseDAO {// dit betekent dat de gebruiker de basedao verder uitbreid
 	private AfspraakDAO afspraakDAO = new AfspraakDAO();//haalt de afspraakdao op
@@ -47,7 +47,12 @@ public class GebruikerDAO extends BaseDAO {// dit betekent dat de gebruiker de b
 					
 					continue;
 
-				} else {
+				}else if (dbResultSet.getInt("id") == 666) {// als de eigenaar met id 666 wordt aangeroepen wordt er niet geprint
+					//haar gegevens zijn namelijk niet zichtbaar voor iemand
+					
+                     continue;
+
+} else {
 					int id = dbResultSet.getInt("id");//het halen van de objecten uit de string
 					String voornaam = dbResultSet.getString("voornaam");
 					String achternaam = dbResultSet.getString("achternaam");

@@ -1,4 +1,4 @@
-package com.tutorial.eclipse.entity;
+package model;
 
 public class Afspraak{
 	// gebruiker pojo

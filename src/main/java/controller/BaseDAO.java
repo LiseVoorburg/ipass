@@ -1,4 +1,4 @@
-package com.ipass.persistence;
+package controller;
 
 import java.sql.Connection;
 

@@ -19,10 +19,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import com.ipass.persistence.AfspraakDAO;
-import com.ipass.persistence.GebruikerDAO;
-import com.tutorial.eclipse.entity.Afspraak;
-import com.tutorial.eclipse.entity.Gebruiker;
+import controller.AfspraakDAO;
+import controller.GebruikerDAO;
+import model.Afspraak;
+import model.Gebruiker;
 
 @Path("/gebruikers")//geeft het path waarmee er een link gemaakt kan worden naar het javascript
 public class GebruikerResource {

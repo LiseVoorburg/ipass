@@ -1,11 +1,11 @@
-package com.ipass.persistence;
+package controller;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.tutorial.eclipse.entity.Afspraak;
-import com.tutorial.eclipse.entity.Gebruiker;
+import model.Afspraak;
+import model.Gebruiker;
 
 
 
